@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="{% url 'storage:assign' %}">Assign Task</a></li>
+            <li><a href="{% url 'storage:members' %}">Members</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </header>
+    <h1>Welcome {{ user }}</h1>
+    <ul>
+        <li>Email: {{profile.0.email}}</li>
+        <li>Phone No: {{profile.0.phone_no}}</li>
+        <li>Skills: {{profile.0.skills}}</li>
+    </ul>
+    <hr>
+    <h3>Notefications</h3>
+    <ul>
+    {% for task in alerts %}
+    <li>
+        <h4>{{ task.assigned_by.username }} assigned you a task</h4>
+        <h5>{{ task.title }}</h5>
+        <p>{{ task.discription }}</p>
+        <a href="{% url 'storage:accept' task.pk %}">Accept</a>
+    </li>
+    {% endfor %}
+    {% for task in submits %}
+    <li>
+        <h4>{{ task.assigned_to.username }} completed the task:</h4>
+        <h5>{{ task.title }}</h5>
+        <a href="{% url 'storage:verify' task.pk %}">verify</a>
+    </li>
+    {% endfor %}
+    </ul>
+
+    <h3>Tasks</h3>
+    <ul>
+        {% for i in tasks %}
+        <li>
+            <h4>{{i.title}}</h4>
+            <p>{{i.discription}}</p>
+            <p>assigned by: {{ i.assigned_by }}</p>
+            <p>deadline: {{ i.f_time }} </p>
+            <p>completed: {{i.done}}</p>
+        
+        </li>
+        {% if not i.done %}
+        <a href="{% url 'storage:submit' i.pk %}">Submit Task</a>
+        {% endif %}
+        {% endfor %}
+        <hr>
+    </ul>
+    
+
+</body>
+</html>

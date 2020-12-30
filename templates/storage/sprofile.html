@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="{% url 'storage:assign' %}">Assign Task</a></li>
+            <li><a href="{% url 'storage:members' %}">Members</a></li>
+        </ul>
+    </header>
+    <h3>Tasks</h3>
+    <ul>
+        {% for i in tasks %}
+        <li>
+            <h4>{{i.title}}</h4>
+            <p>{{i.discription}}</p>
+            <p>assigned by: {{ i.assigned_by }}</p>
+            <p>deadline: {{ i.f_time }} </p>
+            <p>completed: {{i.done}}</p>
+        
+        </li>
+        {% endfor %}
+        <hr>
+    </ul>
+</body>
+</html>
