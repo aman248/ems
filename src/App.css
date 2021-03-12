@@ -1,0 +1,48 @@
+#create {
+  width: 65%;
+  height: 100%;
+  background-color:cornsilk;  
+  display: inline-block;
+  padding: 2%;
+}
+#createq{
+  position: fixed;
+  width: 66%;
+  top: 0;
+  left: 0;
+  background-color:cornsilk;
+  padding: 2%;
+}
+#navq {
+  position: fixed;
+  top: 0; 
+  left:70%;
+  width: 26%;
+  padding: 2%;
+  height: 100%;
+  border: 3px solid #73AD21;
+
+}
+#gets{
+  position: fixed;
+  bottom: 0;
+  left:0;
+}
+nonusednavq {
+  color: brown;
+  width: 27%;
+  padding: 2%;
+  height: 100%;
+  background-color: burlywood;
+  display: inline-block;
+}
+#main {
+  display: inline;
+  height: 100%;
+}
+body{
+  height: 100%;
+}
+.optioninput {
+  display:block;
+}
